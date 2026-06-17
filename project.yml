@@ -1,0 +1,58 @@
+# XcodeGen spec. Install xcodegen (`brew install xcodegen`) then run `xcodegen generate`
+# from this directory to produce QuietMenubar.xcodeproj. Open it in Xcode and Run.
+#
+# Note: XcodeGen *generates* Info.plist and the entitlements file at the paths below from
+# the `properties` sections — do not hand-edit those files, edit this spec instead.
+name: QuietMenubar
+options:
+  bundleIdPrefix: app.quiet
+  deploymentTarget:
+    macOS: "12.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+targets:
+  QuietMenubar:
+    type: application
+    platform: macOS
+    deploymentTarget: "12.0"
+    sources:
+      - path: QuietMenubar
+        excludes:
+          - "Resources/**"
+          - "Info.plist"
+          - "QuietMenubar.entitlements"
+      - path: QuietMenubar/Resources/AppIcon.icns
+        buildPhase: resources
+    info:
+      path: QuietMenubar/Info.plist
+      properties:
+        CFBundleName: Quiet Menubar
+        CFBundleDisplayName: Quiet Menubar
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        CFBundleIconFile: AppIcon
+        CFBundleIconName: AppIcon
+        LSMinimumSystemVersion: "12.0"
+        LSUIElement: true
+        NSHumanReadableCopyright: "No copyright. Public-spirited clone of Hidden Bar."
+        NSAccessibilityUsageDescription: "Quiet Menubar uses Accessibility to register a global keyboard shortcut for showing and hiding your menu bar icons. No data is read or transmitted."
+        NSSupportsSuddenTermination: true
+    entitlements:
+      path: QuietMenubar/QuietMenubar.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.quiet.QuietMenubar
+        PRODUCT_NAME: "Quiet Menubar"
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_ENTITLEMENTS: QuietMenubar/QuietMenubar.entitlements
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+        INFOPLIST_FILE: QuietMenubar/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
