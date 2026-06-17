@@ -18,6 +18,9 @@ A native macOS menu bar manager that hides the icons you don't need until you as
 
 [Install](#install) · [Features](#features) · [Usage](#usage) · [Build from source](#build-from-source) · [FAQ](#faq)
 
+<p>
+  <img src="media/quiet_menubar_demo.gif" alt="quiet_menubar_demo" />
+</p>
 </div>
 
 ---
