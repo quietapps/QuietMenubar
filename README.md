@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="QuietMenubar/Resources/AppIcon.icns" alt="Quiet Menubar" width="128" height="128" />
+<img src="QuietMenubar/Resources/AppIcon.iconset/icon_512x512.png" alt="Quiet Menubar" width="128" height="128" />
 
 # Quiet Menubar
 
